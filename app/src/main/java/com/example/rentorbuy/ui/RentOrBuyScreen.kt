@@ -62,7 +62,8 @@ fun RentOrBuyApp(
                     breakPoint = uiState.breakPoint,
                     resTextStart = getStartText(uiState.modZero),
                     onBackButtonClicked = {
-                        navController.navigate(RentOrBuyScreen.Input.name)
+                        navController.popBackStack(RentOrBuyScreen.Input.name, inclusive = false)
+                        //navController.navigate(RentOrBuyScreen.Input.name)
                     }
                 )
             }
