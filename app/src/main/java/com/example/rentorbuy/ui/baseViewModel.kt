@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlin.math.ceil
 
 class baseViewModel: ViewModel() {
     private val _uiState = MutableStateFlow(baseUiState())
@@ -26,7 +27,7 @@ class baseViewModel: ViewModel() {
         }
     }
 
-    private fun calcBreakpoint(rentPrice: Float, buyPrice: Float): Float {
-        return buyPrice / rentPrice
+    private fun calcBreakpoint(rentPrice: Float, buyPrice: Float): Int {
+        return ceil(buyPrice / rentPrice).toInt()
     }
 }

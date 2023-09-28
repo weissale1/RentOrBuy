@@ -59,7 +59,7 @@ fun RentOrBuyApp(
                 OutputScreen(
                     rentalPrice = uiState.rentPrice,
                     buyPrice = uiState.buyPrice,
-                    calcRes = uiState.breakPoint,
+                    breakPoint = uiState.breakPoint,
                     resTextStart = getStartText(uiState.modZero),
                     onBackButtonClicked = {
                         navController.navigate(RentOrBuyScreen.Input.name)
