@@ -13,6 +13,10 @@ val PtSans = FontFamily(
     Font(R.font.ptsans_bold, FontWeight.Bold)
 )
 
+val PatuaOne = FontFamily(
+    Font(R.font.patuaone_regular)
+)
+
 // Set of Material typography styles to start with
 val Typography = Typography(
 //    bodyLarge = TextStyle(
@@ -22,6 +26,11 @@ val Typography = Typography(
 //        lineHeight = 24.sp,
 //        letterSpacing = 0.5.sp
 //    )
+    titleLarge = TextStyle(
+        fontFamily = PatuaOne,
+        fontWeight = FontWeight.Normal,
+        fontSize = 50.sp
+    ),
     displayLarge = TextStyle(
         fontFamily = PtSans,
         fontWeight = FontWeight.Normal,

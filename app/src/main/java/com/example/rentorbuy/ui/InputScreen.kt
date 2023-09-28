@@ -1,6 +1,7 @@
 package com.example.rentorbuy.ui.theme
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -21,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -41,11 +44,17 @@ fun InputScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+        Spacer(modifier = Modifier.weight(1f))
 
-        // LOGO IMAGE HERE
+        Text(
+            text = "Rent\nor\nBuy?",
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
 
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+        Spacer(modifier = Modifier.weight(1f))
+
         EditNumberField(
             label = R.string.rentalPrice,
             value = rentalPriceInput,
@@ -70,7 +79,9 @@ fun InputScreen(
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
         )
+
         Spacer(modifier = Modifier.weight(1f))
+
         if (!validNumbers(rentalPriceInput, buyPriceInput)) {
             Text(
                 text = stringResource(R.string.invalidInput),
