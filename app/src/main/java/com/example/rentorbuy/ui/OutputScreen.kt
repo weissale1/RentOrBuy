@@ -1,8 +1,6 @@
 package com.example.rentorbuy.ui.theme
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,13 +13,14 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,18 +42,15 @@ fun OutputScreen (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_large)))
 
         SumText(
-            text = "Rental prize",
+            text = R.string.rentalPrice,
             number = rentalPrice
         )
-
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-
         SumText(
-            text = "Buy prize",
+            text = R.string.buyPrice,
             number = buyPrice
         )
 
@@ -67,7 +63,7 @@ fun OutputScreen (
             modifier = Modifier.weight(1f)
         )
 
-        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_large)))
+        Spacer(modifier = Modifier.weight(1f))
 
         ComparisonTable(
             rentalPrice = rentalPrice,
@@ -76,7 +72,7 @@ fun OutputScreen (
             modifier = Modifier.weight(1f)
         )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(0.5f))
 
         Button(
             onClick = onBackButtonClicked,
@@ -90,16 +86,31 @@ fun OutputScreen (
 
 @Composable
 fun SumText(
-    text: String,
+    @StringRes text: Int,
     number: Float,
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text)
-        Text(text = " %.2f".format(number))
+        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = stringResource(text),
+            textAlign = TextAlign.Left,
+            style = MaterialTheme.typography.displaySmall,
+            modifier = Modifier.padding(
+                end = dimensionResource(id = R.dimen.padding_small)
+            )
+        )
+        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = " %.2f".format(number),
+            textAlign = TextAlign.Right,
+            style = MaterialTheme.typography.displayMedium
+        )
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
@@ -117,9 +128,23 @@ fun ResultText(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = stringResource(text1))
-            Text(text = breakPoint.toString())
-            Text(text = stringResource(text2))
+            Text(
+                text = stringResource(text1),
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            Text(
+                text = breakPoint.toString(),
+                style = MaterialTheme.typography.displayLarge,
+                modifier = Modifier.padding(
+                    vertical = dimensionResource(
+                        id = R.dimen.padding_small
+                    )
+                )
+            )
+            Text(
+                text = stringResource(text2),
+                style = MaterialTheme.typography.bodyLarge,
+            )
         }
     }
 }
@@ -143,6 +168,7 @@ fun ComparisonTable(
             ComparisonRow(
                 index = breakPoint - 1,
                 rentalTimesPrice = rentalPrice * (breakPoint - 1),
+                style = MaterialTheme.typography.displaySmall,
                 buyPrice = buyPrice
             )
         }
@@ -151,15 +177,15 @@ fun ComparisonTable(
                 index = breakPoint,
                 rentalTimesPrice = rentalPrice * breakPoint,
                 buyPrice = buyPrice,
-                modifier = Modifier.border(
-                    BorderStroke(2.dp, Color.Red)
-                )
+                style = MaterialTheme.typography.displayMedium
             )
+
         }
         item {
             ComparisonRow(
                 index = breakPoint + 1,
                 rentalTimesPrice = rentalPrice * (breakPoint + 1),
+                style = MaterialTheme.typography.displaySmall,
                 buyPrice = buyPrice
             )
         }
@@ -176,19 +202,22 @@ fun ComparisonHeaderRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "Rentals",
+            text = stringResource(id = R.string.noOfRentals),
+            style = MaterialTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
         )
         Text(
-            text = "Rental Prize",
+            text = stringResource(id = R.string.rentalPrice),
+            style = MaterialTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
         )
         Text(
-            text = "Buy Prize",
+            text = stringResource(id = R.string.buyPrice),
+            style = MaterialTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
@@ -202,6 +231,7 @@ fun ComparisonRow(
     index: Int,
     rentalTimesPrice: Float,
     buyPrice: Float,
+    style: TextStyle,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -212,6 +242,7 @@ fun ComparisonRow(
         Text(
             text = index.toString(),
             textAlign = TextAlign.Center,
+            style = style,
             modifier = Modifier
                 .width(ROW_WIDTH)
 
@@ -219,12 +250,14 @@ fun ComparisonRow(
         Text(
             text = "%.2f".format(rentalTimesPrice),
             textAlign = TextAlign.Center,
+            style = style,
             modifier = Modifier
                 .width(ROW_WIDTH)
         )
         Text(
             text = "%.2f".format(buyPrice),
             textAlign = TextAlign.Center,
+            style = style,
             modifier = Modifier
                 .width(ROW_WIDTH)
         )

@@ -24,9 +24,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.rentorbuy.R
-import kotlin.math.floor
 
 @Composable
 fun InputScreen(
@@ -47,7 +47,7 @@ fun InputScreen(
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
         EditNumberField(
-            label = R.string.rentalPriceInput,
+            label = R.string.rentalPrice,
             value = rentalPriceInput,
             onValueChange = { rentalPriceInput = formatInputNumber(it) },
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -59,7 +59,7 @@ fun InputScreen(
                 .fillMaxWidth()
         )
         EditNumberField(
-            label = R.string.buyPriceInput,
+            label = R.string.buyPrice,
             value = buyPriceInput,
             onValueChange = { buyPriceInput = formatInputNumber(it) },
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -72,7 +72,15 @@ fun InputScreen(
         )
         Spacer(modifier = Modifier.weight(1f))
         if (!validNumbers(rentalPriceInput, buyPriceInput)) {
-            Text(stringResource(R.string.invalidInput))
+            Text(
+                text = stringResource(R.string.invalidInput),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(
+                    bottom = dimensionResource(
+                        id = R.dimen.padding_small
+                    )
+                )
+            )
         }
 
         Button(

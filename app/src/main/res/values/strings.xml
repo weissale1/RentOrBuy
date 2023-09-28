@@ -2,10 +2,11 @@
     <string name="app_name">RentOrBuy</string>
     <string name="input_screen">Input_Screen</string>
     <string name="result_screen">Result_Screen</string>
-    <string name="rentalPriceInput">Rental Price</string>
+    <string name="rentalPrice">Rental price</string>
+    <string name="buyPrice">Buy price</string>
+    <string name="noOfRentals">Rentals</string>
     <string name="invalidInput">Invalid input.\nPrizes must be greater then zero.</string>
-    <string name="buyPriceInput">Buying Price</string>
-    <string name="res_buying_emph1">Buying is cheaper after more then</string>
+    <string name="res_buying_emph1">Buying is cheaper after more than</string>
     <string name="res_buying_emph2">Buying costs the same as</string>
     <string name="res_renting_emph1">Rentil is cheaper until</string>
     <string name="res_end">rentals.</string>
