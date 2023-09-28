@@ -111,7 +111,7 @@ fun validInputNumber(number: String): Boolean {
 }
 
 fun formatInputNumber(input: String): String {
-    return input.filter { "0123456789.".contains(it) }
+    return input.trimStart('.').filter { "0123456789.".contains(it) }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
