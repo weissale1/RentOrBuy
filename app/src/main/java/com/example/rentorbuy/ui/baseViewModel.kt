@@ -10,13 +10,18 @@ import kotlinx.coroutines.flow.update
 class baseViewModel: ViewModel() {
     private val _uiState = MutableStateFlow(baseUiState())
     val uiState: StateFlow<baseUiState> = _uiState.asStateFlow()
-
     fun calcRes(rentPrice: Float, buyPrice: Float) {
+        var modZero = false
+        if (buyPrice % rentPrice == 0f) {
+            modZero = true
+        }
+
         _uiState.update { currentState ->
             currentState.copy(
                 rentPrice = rentPrice,
                 buyPrice = buyPrice,
-                breakPoint = calcBreakpoint(rentPrice, buyPrice)
+                breakPoint = calcBreakpoint(rentPrice, buyPrice),
+                modZero = modZero
             )
         }
     }

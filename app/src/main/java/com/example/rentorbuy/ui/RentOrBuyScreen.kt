@@ -32,6 +32,14 @@ fun RentOrBuyApp(
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = RentOrBuyScreen.valueOf(backStackEntry?.destination?.route ?: RentOrBuyScreen.Input.name)
 
+    fun getStartText(modZero: Boolean): Int {
+        return if (modZero) {
+            R.string.res_buying_emph2
+        } else {
+            R.string.res_buying_emph1
+        }
+    }
+
     Scaffold {innerPadding ->
         val uiState by viewModel.uiState.collectAsState()
         NavHost(
@@ -52,6 +60,7 @@ fun RentOrBuyApp(
                     rentalPrice = uiState.rentPrice,
                     buyPrice = uiState.buyPrice,
                     calcRes = uiState.breakPoint,
+                    resTextStart = getStartText(uiState.modZero),
                     onBackButtonClicked = {
                         navController.navigate(RentOrBuyScreen.Input.name)
                     }

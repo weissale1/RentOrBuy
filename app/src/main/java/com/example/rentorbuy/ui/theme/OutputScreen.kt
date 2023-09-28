@@ -25,6 +25,7 @@ fun OutputScreen (
     rentalPrice: Float,
     buyPrice: Float,
     calcRes: Float,
+    @StringRes resTextStart: Int,
     onBackButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -51,9 +52,9 @@ fun OutputScreen (
         Spacer(modifier = Modifier.weight(1f))
 
         ResultText(
-            text1 = R.string.res_buying_emph1,
+            text1 = resTextStart,
             number = calcRes,
-            text2 = R.string.res_buying_emph2,
+            text2 = R.string.res_end,
             modifier = Modifier.weight(1f)
         )
 
