@@ -86,6 +86,7 @@ fun InputScreen(
             Text(
                 text = stringResource(R.string.invalidInput),
                 textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.error,
                 modifier = Modifier.padding(
                     bottom = dimensionResource(
                         id = R.dimen.padding_small

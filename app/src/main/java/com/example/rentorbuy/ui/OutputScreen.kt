@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -60,7 +61,6 @@ fun OutputScreen (
             text1 = resTextStart,
             breakPoint = breakPoint,
             text2 = R.string.res_end,
-            modifier = Modifier.weight(1f)
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -100,6 +100,7 @@ fun SumText(
             text = stringResource(text),
             textAlign = TextAlign.Left,
             style = MaterialTheme.typography.displaySmall,
+            color = MaterialTheme.colorScheme.secondary,
             modifier = Modifier.padding(
                 end = dimensionResource(id = R.dimen.padding_small)
             )
@@ -108,7 +109,8 @@ fun SumText(
         Text(
             text = " %.2f".format(number),
             textAlign = TextAlign.Right,
-            style = MaterialTheme.typography.displayMedium
+            style = MaterialTheme.typography.displayMedium,
+            color = MaterialTheme.colorScheme.secondary
         )
         Spacer(modifier = Modifier.weight(1f))
     }
@@ -121,30 +123,40 @@ fun ResultText(
     @StringRes text2: Int,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center
+    Card(
+        modifier = modifier
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(vertical = dimensionResource(
+                    id = R.dimen.padding_small
+                )
+                ),
+            horizontalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = stringResource(text1),
-                style = MaterialTheme.typography.bodyLarge,
-            )
-            Text(
-                text = breakPoint.toString(),
-                style = MaterialTheme.typography.displayLarge,
-                modifier = Modifier.padding(
-                    vertical = dimensionResource(
-                        id = R.dimen.padding_small
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(text1),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+                Text(
+                    text = breakPoint.toString(),
+                    style = MaterialTheme.typography.displayLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(
+                        vertical = dimensionResource(
+                            id = R.dimen.padding_small
+                        )
                     )
                 )
-            )
-            Text(
-                text = stringResource(text2),
-                style = MaterialTheme.typography.bodyLarge,
-            )
+                Text(
+                    text = stringResource(text2),
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
         }
     }
 }
@@ -204,6 +216,7 @@ fun ComparisonHeaderRow(
         Text(
             text = stringResource(id = R.string.noOfRentals),
             style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.tertiary,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
@@ -211,6 +224,7 @@ fun ComparisonHeaderRow(
         Text(
             text = stringResource(id = R.string.rentalPrice),
             style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.tertiary,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
@@ -218,6 +232,7 @@ fun ComparisonHeaderRow(
         Text(
             text = stringResource(id = R.string.buyPrice),
             style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.tertiary,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .width(ROW_WIDTH)
