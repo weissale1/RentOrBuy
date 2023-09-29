@@ -92,7 +92,7 @@ fun SumText(
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.weight(1f))
@@ -132,7 +132,7 @@ fun ResultText(
                 .padding(vertical = dimensionResource(
                     id = R.dimen.padding_small
                 )
-                ),
+            ),
             horizontalArrangement = Arrangement.Center
         ) {
             Column(
@@ -171,6 +171,7 @@ fun ComparisonTable(
     LazyHorizontalGrid(
         rows = GridCells.Fixed(4),
         modifier = modifier.fillMaxWidth(),
+        userScrollEnabled = false,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         item {
