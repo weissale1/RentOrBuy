@@ -141,6 +141,7 @@ fun ResultText(
                 Text(
                     text = stringResource(text1),
                     style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
                 Text(
                     text = breakPoint.toString(),
@@ -155,6 +156,7 @@ fun ResultText(
                 Text(
                     text = stringResource(text2),
                     style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
         }
@@ -282,7 +284,7 @@ fun ComparisonRow(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun OutputSreenPreview() {
+fun OutputScreenPreview() {
     RentOrBuyTheme {
         OutputScreen(
             rentalPrice = 3f,

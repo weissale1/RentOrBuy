@@ -4,14 +4,19 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -23,21 +28,38 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rentorbuy.R
 
 @Composable
 fun InputScreen(
     onNextButtonClicked: (Float, Float) -> Unit,
+    onAboutButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var rentalPriceInput by remember { mutableStateOf("") }
     var buyPriceInput by remember { mutableStateOf("") }
+
+    Row(
+        horizontalArrangement = Arrangement.End,
+        verticalAlignment = Alignment.Top,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(dimensionResource(id = R.dimen.padding_small))
+    ){
+        IconButton(onClick = onAboutButtonClicked) {
+            Icon(
+                Icons.Outlined.Info,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.outline,
+            )
+        }
+    }
 
     Column(
         modifier = Modifier.padding(40.dp),
@@ -152,3 +174,14 @@ fun EditNumberField(
         modifier = modifier
     )
 }
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun InputScreenPreview() {
+    RentOrBuyTheme {
+        InputScreen(
+            onNextButtonClicked = { _, _ -> },
+            onAboutButtonClicked =  {}
+        )
+    }
+}
+

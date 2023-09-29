@@ -2,6 +2,7 @@
     <string name="app_name">RentOrBuy</string>
     <string name="input_screen">Input_Screen</string>
     <string name="result_screen">Result_Screen</string>
+    <string name="about_screen">About_Screen</string>
     <string name="rentalPrice">Rental price</string>
     <string name="buyPrice">Buy price</string>
     <string name="noOfRentals">Rentals</string>
@@ -12,4 +13,16 @@
     <string name="res_end">rentals.</string>
     <string name="next">Calculate</string>
     <string name="back">Back</string>
+    <string name="version">0.0.1</string>
+    <string name="about_text">
+        Hi, my name is Alex.
+        \n\nThis is the first app I ever build.
+        \nIt is mainly a practical exercise for me to
+        get into modern app development on Android.
+        \nIf you found this app usefully in any way, I would
+        be very happy to hear about in the Play Store.
+        \n\nI am also happy about any bugs, improvement ideas, etc.
+        \n\nRent or Buy is build with Jetpack Compose and Material3.
+    </string>
+
 </resources>

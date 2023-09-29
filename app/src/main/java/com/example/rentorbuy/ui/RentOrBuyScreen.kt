@@ -20,7 +20,8 @@ import com.example.rentorbuy.ui.theme.OutputScreen
 
 enum class RentOrBuyScreen(@StringRes val title: Int) {
     Input(title = R.string.input_screen),
-    Result(title = R.string.result_screen)
+    Result(title = R.string.result_screen),
+    About(title = R.string.about_screen)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,6 +53,9 @@ fun RentOrBuyApp(
                     onNextButtonClicked = { rentPrice, buyPrice ->
                         viewModel.calcRes(rentPrice, buyPrice)
                         navController.navigate(RentOrBuyScreen.Result.name)
+                    },
+                    onAboutButtonClicked = {
+                        navController.navigate(RentOrBuyScreen.About.name)
                     }
                 )
             }
@@ -63,7 +67,14 @@ fun RentOrBuyApp(
                     resTextStart = getStartText(uiState.modZero),
                     onBackButtonClicked = {
                         navController.popBackStack(RentOrBuyScreen.Input.name, inclusive = false)
-                        //navController.navigate(RentOrBuyScreen.Input.name)
+                    }
+                )
+            }
+            composable(route = RentOrBuyScreen.About.name) {
+                AboutScreen(
+                    aboutText = R.string.about_text,
+                    onBackButtonClicked = {
+                        navController.popBackStack(RentOrBuyScreen.Input.name, inclusive = false)
                     }
                 )
             }
