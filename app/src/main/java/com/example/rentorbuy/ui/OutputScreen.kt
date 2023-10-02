@@ -209,6 +209,7 @@ fun ComparisonHeaderRow(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        Spacer(modifier = Modifier.weight(1f))
         Text(
             text = stringResource(id = R.string.noOfRentals),
             style = MaterialTheme.typography.labelSmall,
@@ -233,6 +234,7 @@ fun ComparisonHeaderRow(
             modifier = Modifier
                 .width(ROW_WIDTH)
         )
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
@@ -250,6 +252,7 @@ fun ComparisonRow(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        Spacer(modifier = Modifier.weight(1f))
         Text(
             text = index.toString(),
             textAlign = TextAlign.Center,
@@ -272,6 +275,7 @@ fun ComparisonRow(
             modifier = Modifier
                 .width(ROW_WIDTH)
         )
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
