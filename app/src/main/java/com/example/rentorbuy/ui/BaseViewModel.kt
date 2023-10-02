@@ -1,16 +1,16 @@
 package com.example.rentorbuy.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.rentorbuy.data.baseUiState
+import com.example.rentorbuy.data.BaseUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlin.math.ceil
 
-class baseViewModel: ViewModel() {
-    private val _uiState = MutableStateFlow(baseUiState())
-    val uiState: StateFlow<baseUiState> = _uiState.asStateFlow()
+class BaseViewModel: ViewModel() {
+    private val _uiState = MutableStateFlow(BaseUiState())
+    val uiState: StateFlow<BaseUiState> = _uiState.asStateFlow()
     fun calcRes(rentPrice: Float, buyPrice: Float) {
         var modZero = false
         if (buyPrice % rentPrice == 0f) {

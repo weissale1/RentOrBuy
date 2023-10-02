@@ -24,7 +24,7 @@ enum class RentOrBuyScreen {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RentOrBuyApp(
-    viewModel: baseViewModel = viewModel(),
+    viewModel: BaseViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
     //val backStackEntry by navController.currentBackStackEntryAsState()
