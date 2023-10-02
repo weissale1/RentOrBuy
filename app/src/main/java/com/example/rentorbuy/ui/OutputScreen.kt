@@ -65,12 +65,14 @@ fun OutputScreen (
 
         Spacer(modifier = Modifier.weight(1f))
 
-        ComparisonTable(
-            rentalPrice = rentalPrice,
-            buyPrice = buyPrice,
-            breakPoint = breakPoint,
-            modifier = Modifier.weight(1f)
-        )
+        if (canShowTable(rentalPrice, buyPrice)) {
+            ComparisonTable(
+                rentalPrice = rentalPrice,
+                buyPrice = buyPrice,
+                breakPoint = breakPoint,
+                modifier = Modifier.weight(1f)
+            )
+        }
 
         Spacer(modifier = Modifier.weight(0.5f))
 
@@ -95,7 +97,7 @@ fun SumText(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_large)))
         Text(
             text = stringResource(text),
             textAlign = TextAlign.Left,
@@ -112,7 +114,7 @@ fun SumText(
             style = MaterialTheme.typography.displayMedium,
             color = MaterialTheme.colorScheme.secondary
         )
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_large)))
     }
 }
 
@@ -129,10 +131,11 @@ fun ResultText(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(vertical = dimensionResource(
-                    id = R.dimen.padding_small
-                )
-            ),
+                .padding(
+                    vertical = dimensionResource(
+                        id = R.dimen.padding_small
+                    )
+                ),
             horizontalArrangement = Arrangement.Center
         ) {
             Column(
@@ -294,4 +297,11 @@ fun OutputScreenPreview() {
             onBackButtonClicked = {}
         )
     }
+}
+
+fun canShowTable(rentalPrice: Float, buyPrice: Float): Boolean {
+    return (
+            "%.2f".format(rentalPrice).length < 8
+            && "%.2f".format(buyPrice).length < 8
+            )
 }

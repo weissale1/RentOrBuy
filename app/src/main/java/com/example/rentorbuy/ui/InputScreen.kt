@@ -169,6 +169,7 @@ fun EditNumberField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(stringResource(label)) },
+        textStyle = MaterialTheme.typography.displayMedium,
         singleLine = true,
         keyboardOptions = keyboardOptions,
         modifier = modifier

@@ -6,4 +6,3 @@
   - Apparently a bug in compose, see link https://issuetracker.google.com/issues/295349282
 - Do not show output table if screen is super small
 - Adapt for tablet
-- set max length for inputs
