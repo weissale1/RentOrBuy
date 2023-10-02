@@ -1,7 +1,6 @@
-package com.example.rentorbuy.ui.theme
+package com.example.rentorbuy.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rentorbuy.R
+import com.example.rentorbuy.ui.theme.RentOrBuyTheme
 
 @Composable
 fun InputScreen(

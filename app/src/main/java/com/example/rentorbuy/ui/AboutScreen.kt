@@ -1,11 +1,9 @@
 package com.example.rentorbuy.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -17,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,7 +36,7 @@ fun AboutScreen(
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
-        Card() {
+        Card {
             Text(
                 text = stringResource(id = aboutText),
                 style = MaterialTheme.typography.bodyLarge,
@@ -74,7 +71,7 @@ fun AboutScreen(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun InputScreenPreview() {
+fun AboutScreenPreview() {
     RentOrBuyTheme {
         AboutScreen(
             aboutText = R.string.about_text,

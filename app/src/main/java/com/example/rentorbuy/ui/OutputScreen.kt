@@ -1,4 +1,4 @@
-package com.example.rentorbuy.ui.theme
+package com.example.rentorbuy.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -26,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.rentorbuy.R
+import com.example.rentorbuy.ui.theme.RentOrBuyTheme
 
 val ROW_WIDTH = 100.dp
 
@@ -182,8 +181,8 @@ fun ComparisonTable(
         ComparisonRow(
             index = breakPoint - 1,
             rentalTimesPrice = rentalPrice * (breakPoint - 1),
-            style = MaterialTheme.typography.displaySmall,
-            buyPrice = buyPrice
+            buyPrice = buyPrice,
+            style = MaterialTheme.typography.displaySmall
         )
         ComparisonRow(
             index = breakPoint,
@@ -194,8 +193,8 @@ fun ComparisonTable(
         ComparisonRow(
             index = breakPoint + 1,
             rentalTimesPrice = rentalPrice * (breakPoint + 1),
-            style = MaterialTheme.typography.displaySmall,
-            buyPrice = buyPrice
+            buyPrice = buyPrice,
+            style = MaterialTheme.typography.displaySmall
         )
     }
 }
