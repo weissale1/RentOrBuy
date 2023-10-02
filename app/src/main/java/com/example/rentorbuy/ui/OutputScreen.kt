@@ -173,40 +173,30 @@ fun ComparisonTable(
     breakPoint: Int,
     modifier: Modifier = Modifier
 ) {
-    LazyHorizontalGrid(
-        rows = GridCells.Fixed(4),
+    Column(
         modifier = modifier.fillMaxWidth(),
-        userScrollEnabled = false,
-        horizontalArrangement = Arrangement.SpaceEvenly
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
     ) {
-        item {
-            ComparisonHeaderRow()
-        }
-        item {
-            ComparisonRow(
-                index = breakPoint - 1,
-                rentalTimesPrice = rentalPrice * (breakPoint - 1),
-                style = MaterialTheme.typography.displaySmall,
-                buyPrice = buyPrice
-            )
-        }
-        item {
-            ComparisonRow(
-                index = breakPoint,
-                rentalTimesPrice = rentalPrice * breakPoint,
-                buyPrice = buyPrice,
-                style = MaterialTheme.typography.displayMedium
-            )
-
-        }
-        item {
-            ComparisonRow(
-                index = breakPoint + 1,
-                rentalTimesPrice = rentalPrice * (breakPoint + 1),
-                style = MaterialTheme.typography.displaySmall,
-                buyPrice = buyPrice
-            )
-        }
+        ComparisonHeaderRow()
+        ComparisonRow(
+            index = breakPoint - 1,
+            rentalTimesPrice = rentalPrice * (breakPoint - 1),
+            style = MaterialTheme.typography.displaySmall,
+            buyPrice = buyPrice
+        )
+        ComparisonRow(
+            index = breakPoint,
+            rentalTimesPrice = rentalPrice * breakPoint,
+            buyPrice = buyPrice,
+            style = MaterialTheme.typography.displayMedium
+        )
+        ComparisonRow(
+            index = breakPoint + 1,
+            rentalTimesPrice = rentalPrice * (breakPoint + 1),
+            style = MaterialTheme.typography.displaySmall,
+            buyPrice = buyPrice
+        )
     }
 }
 
