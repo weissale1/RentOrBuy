@@ -25,7 +25,8 @@ enum class RentOrBuyScreen {
 @Composable
 fun RentOrBuyApp(
     viewModel: BaseViewModel = viewModel(),
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    modifier: Modifier
 ) {
     //val backStackEntry by navController.currentBackStackEntryAsState()
     //val currentScreen = RentOrBuyScreen.valueOf(backStackEntry?.destination?.route ?: RentOrBuyScreen.Input.name)
@@ -38,7 +39,7 @@ fun RentOrBuyApp(
         }
     }
 
-    Scaffold {innerPadding ->
+    Scaffold(modifier = modifier) { innerPadding ->
         val uiState by viewModel.uiState.collectAsState()
         NavHost(
             navController = navController,
