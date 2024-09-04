@@ -21,7 +21,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-
 import com.google.android.gms.ads.MobileAds
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,11 +34,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val backgroundScope = CoroutineScope(Dispatchers.IO)
-//        backgroundScope.launch {
-//            // Initialize the Google Mobile Ads SDK on a background thread.
-//            MobileAds.initialize(this@MainActivity) {}
-//        }
+        val backgroundScope = CoroutineScope(Dispatchers.IO)
+        backgroundScope.launch {
+            // Initialize the Google Mobile Ads SDK on a background thread.
+            MobileAds.initialize(this@MainActivity) {}
+        }
 
         setContent {
             RentOrBuyTheme {
@@ -48,12 +47,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                    Column(
-//                        modifier = Modifier.fillMaxSize()
-//                    ) {
+                    Column(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
                         RentOrBuyApp()
                         //BannerAd(context = LocalContext.current)
-//                    }
+                    }
                 }
             }
         }
