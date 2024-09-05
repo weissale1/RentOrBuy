@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RentOrBuy</string>
     <string name="rentalPrice">Rental price</string>
-    <string name="buyPrice">Buy price</string>
+    <string name="buyPrice">Buying price</string>
     <string name="noOfRentals">Rentals</string>
     <string name="invalidInput">Invalid input.\nPrizes must be greater then zero.</string>
     <string name="res_buying_emph1">Buying is cheaper after more than</string>
@@ -9,7 +9,7 @@
     <string name="res_end">rentals.</string>
     <string name="next">Calculate</string>
     <string name="back">Back</string>
-    <string name="version">1.0.0</string>
+    <string name="version">1.1.0</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="about_text">
         Hi, my name is Alex.
