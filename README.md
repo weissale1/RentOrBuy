@@ -1,8 +1,9 @@
 # RentOrBuy
+Most simple Android App that I could think of.
 
+Used to try Jetpack Compose with Kotlin.
 
-# TODO
-- Investigate weired popping of keyboard on input page
-  - Apparently a bug in compose, see link https://issuetracker.google.com/issues/295349282
-- Do not show output table if screen is super small
-- Adapt for tablet
+Findings:
+1. I like Kotlin and Jetpack Compose is an interesting framework.
+2. Publishing an app via the Play Store is something I do not enjoy.
+3. Having to deal with device specific problems is something I do not enjoy.
